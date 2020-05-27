@@ -8,6 +8,12 @@ export const fetchPostsAndUsers = () => async (dispatch, getState) => {
 
   userIds.forEach((id) => dispatch(fetchUser(id)));
   //await Promise.all(userIds.map(id => dispatch(fetchUser(id)))); //might work if you want to wait for each id to be fetched
+
+  //_.chain(getState().posts) // refactored method
+  // .map('userId')
+  // .uniq()
+  // .forEach(id => dispatch(fetchUser(id)))
+  // .value();
 };
 
 export const fetchPosts = () => async (dispatch) => {
